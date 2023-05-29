@@ -1,13 +1,17 @@
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
   let result =  array.map(item => item.director);
-  console.log("EXERCICE 1 ->", result);
+  console.log("Ejercicio 1 ->", result);
   return result;
-}
+} /*https://www.youtube.com/watch?v=YRnNu0smJCk*/
+
+
 
 // Exercise 2: Get the films of a certain director
-function getMoviesFromDirector(array, director) {
- 
+function getMoviesFromDirector(array, director="Steven Spielberg") {
+  let result = array.filter (item => item.director === director)
+  console.log("Ejercicio 2 ->", result);
+  return result;
 }
 
 // Exercise 3: Calculate the average of the films of a given director.
