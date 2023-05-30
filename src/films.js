@@ -18,19 +18,31 @@ function getMoviesFromDirector(array, director) {
 function moviesAverageOfDirector(array, director) { 
   let filtering = array.filter (item => item.director === director)
   let target = filtering.map(item => item.score);
-  let result = Number(target.reduce((acc, item)=> acc+item,0)/target.length.toFixed(2)); 
+  let result = Number(target.reduce((acc, item)=> acc+item,0)/target.length.toFixed(2));     
     
-    console.log("Ejercicio 3 ->", result);
-    return result;
+  console.log("Ejercicio 3 ->", result);
+  return result;
   }  
-
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {   
+  let filtering = array.map(item => item.title);
+
+  let result = filtering.sort();
+
+   if (result.length>20){
+     result.length=20;
+   };
+  console.log("Ejercicio 4 ->", result);
+  return result;
 }
 
 // Exercise 5: Order by year, ascending
-function orderByYear() {
+function orderByYear(array) {
+  let filtering = array.map(item => item.year).sort();
+  console.log("Ejercicio 5");
+  console.log(filtering);
+  console.log(year);
 
 }
 
