@@ -84,7 +84,9 @@ function moviesAverageByCategory(array, genre) {
 
 // Nivel 2
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {}
+function hoursToMinutes() {
+  
+}
 
 // Nivel 3
 // Exercise 8: Get the best film of a year
