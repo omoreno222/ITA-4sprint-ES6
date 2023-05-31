@@ -30,20 +30,29 @@ function orderAlphabetically(array) {
 
   let result = filtering.sort();
 
-   if (result.length>20){
-     result.length=20;
-   };
+  if (result.length>20) result.length=20;
+  
   console.log("Ejercicio 4 ->", result);
   return result;
 }
 
 // Exercise 5: Order by year, ascending
 function orderByYear(array) {
-  let filtering = array.map(item => item.year).sort();
-  console.log("Ejercicio 5");
-  console.log(filtering);
-  console.log(year);
+  let result = [...array].sort((next, current) => {
+      let orden = next.year-current.year; // mdn web docs lo denomina compareFunction (a,b)
 
+      if (orden === 0){   // sin cambios entre ellos
+        if (next.title < current.title) orden = -1; // title es string no por signo sino por mayor menor que<> 
+        else orden= 1;
+      }
+      if (orden > 0) { orden = 1} //Si orden>0 current en indice menor que next
+      if (orden < 0) { orden = -1}; //Si orden<0, next en indice menor que current, next viene primero que current
+      
+      return orden      
+    });
+  
+  console.log("Ejercicio 5 ->", result);
+  return result;
 }
 
 // Exercise 6: Calculate the average of the movies in a category
@@ -51,11 +60,13 @@ function moviesAverageByCategory() {
 
 }
 
+// Nivel 2 
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes() {
 
 }
 
+// Nivel 3
 // Exercise 8: Get the best film of a year
 function bestFilmOfYear() {
   
