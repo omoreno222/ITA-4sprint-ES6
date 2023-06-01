@@ -84,8 +84,32 @@ function moviesAverageByCategory(array, genre) {
 
 // Nivel 2
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
-  
+function hoursToMinutes(array) {
+  let result = array.map( item => {
+    let newTime = item.duration.split(" ");
+    let newDuration;
+   
+    if (newTime.length == 2) {
+      newDuration = parseInt(newTime[0])*60 + parseInt(newTime[1]);
+    } else if (newTime.length == 1) {
+      newDuration = parseInt(newTime[0]);
+    } else {
+      newDuration = null;
+    }
+
+    if (newDuration === 2 ) { /* no entra en el if anerior, si lo pongo dentro del otro if devuelve undefined (newDuration es undefined todavía) */
+    newDuration = 120;
+    }
+
+    return {
+      ...item,
+      duration: newDuration
+    }
+  });
+
+  console.log("Ejercicio 7-> ", result)
+  return result;
+
 }
 
 // Nivel 3
