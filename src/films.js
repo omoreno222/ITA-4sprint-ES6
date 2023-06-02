@@ -68,16 +68,16 @@ function orderByYear(array) {
 function moviesAverageByCategory(array, genre) {
   let moviesAverage = (array, genre) => {
     let filtering = array.filter((item) => {
-      if (typeof(item.score) !== "number");
+      if (typeof item.score !== 'number');
       else return item.genre.includes(genre);
     });
-    
+
     let target = filtering.map((item) => item.score);
     let result = target.reduce((acc, item) => acc + item, 0) / target.length;
     return Number(result.toFixed(2));
   };
-  let result = moviesAverage(array,genre);
-  
+  let result = moviesAverage(array, genre);
+
   console.log('Ejercicio 6 ->', result);
   return result;
 }
@@ -85,36 +85,43 @@ function moviesAverageByCategory(array, genre) {
 // Nivel 2
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes(array) {
-  let result = array.map( item => {
-    let newTime = item.duration.split(" ");
+  let result = array.map((item) => {
+    let newTime = item.duration.split(' ');
     let newDuration;
-   
+
     if (newTime.length == 2) {
-      newDuration = parseInt(newTime[0])*60 + parseInt(newTime[1]);
+      newDuration = parseInt(newTime[0]) * 60 + parseInt(newTime[1]);
     } else if (newTime.length == 1) {
       newDuration = parseInt(newTime[0]);
-    } else {
+    } else {
       newDuration = null;
     }
 
-    if (newDuration === 2 ) { /* no entra en el if anerior, si lo pongo dentro del otro if devuelve undefined (newDuration es undefined todavía) */
-    newDuration = 120;
+    if (newDuration === 2) {
+      /* no entra en el if anerior, si lo pongo dentro del otro if devuelve undefined (newDuration es undefined todavía) */
+      newDuration = 120;
     }
 
     return {
       ...item,
       duration: newDuration
-    }
+    };
   });
 
-  console.log("Ejercicio 7-> ", result)
+  console.log('Ejercicio 7-> ', result);
   return result;
-
 }
 
 // Nivel 3
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {}
+function bestFilmOfYear(array, year) {
+  let targetYear = array.filter((item) => item.year === year);
+  let yearSort = targetYear.sort((cum, current) => cum.score > current.score ? 1 : -1);
+  let result = yearSort[yearSort.length - 1];
+
+  console.log('Ejercicio 8 -> ', result);
+  return result;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
